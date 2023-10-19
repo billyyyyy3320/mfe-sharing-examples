@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
   // Entry point for the application
@@ -29,6 +30,21 @@ module.exports = {
 
   // Plugins
   plugins: [
+    new ModuleFederationPlugin({
+      name: 'host-app',
+      remotes: {
+        MicroFrontend1: 'MicroFrontend1@http://localhost:3001/remoteEntry.js',
+        MicroFrontend2: 'MicroFrontend2@http://localhost:3002/remoteEntry.js',
+      },
+      shared: {
+        'react': {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+      }
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),

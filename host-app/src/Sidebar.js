@@ -7,6 +7,8 @@ const Sidebar = () => {
             <nav>
                 <ul style={{ listStyleType: 'none', padding: 0 }}>
                     <li><Link to="/menu">Menu</Link></li>
+                    <li><Link to="/lamp">Lamp</Link></li>
+                    <li><Link to="/rocket">Rocket</Link></li>
                 </ul>
             </nav>
         </div>

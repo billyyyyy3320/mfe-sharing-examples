@@ -8,6 +8,8 @@ import {
 import Sidebar from './Sidebar';
 
 const Menu = React.lazy(() => import('./Menu'));
+const Rocket = React.lazy(() => import('MicroFrontend1/Rocket'));
+const Lamp = React.lazy(() => import('MicroFrontend2/Lamp'));
 
 const App = () => (
   <Router>
@@ -19,6 +21,8 @@ const App = () => (
       <React.Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/menu" element={<Menu />} />
+          <Route path="/rocket" element={<Rocket />} />
+          <Route path="/lamp" element={<Lamp />} />
         </Routes>
       </React.Suspense>
     </div>
